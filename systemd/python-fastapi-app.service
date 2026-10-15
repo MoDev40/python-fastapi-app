@@ -1,0 +1,13 @@
+[Unit]
+Description=FastAPI Application
+After=network.target
+
+[Service]
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/home/ubuntu/apps/python-fastapi-app/releases/current
+ExecStart=/home/ubuntu/apps/python-fastapi-app/releases/current/venv/bin/uvicorn app.main:app --host 127.0.0.1 --port 8800
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
